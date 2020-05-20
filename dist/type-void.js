@@ -8,18 +8,22 @@ function showInfo(user) {
 showInfo({ id: 1, username: 'jhoguer', firstName: 'Jhon' });
 // Tipo Inferido
 function showFormattedInfo(user) {
-    console.log("User Info \n        id: " + user.id + "\n        username: " + user.username + "\n        firstName: " + user.firstName + "\n    ");
+    console.log(`User Info 
+        id: ${user.id}
+        username: ${user.username}
+        firstName: ${user.firstName}
+    `);
 }
 showFormattedInfo({ id: 1, username: 'jhoguer', firstName: 'Jhon' });
 // Tipo void, como tipo de dato en variable
-var unusable;
+let unusable;
 // unusable = null;
 unusable = undefined;
 // Tipo Never
 function handleError(code, message) {
     // Process you code here
     // Generate a message
-    throw new Error(message + ". Code: " + code);
+    throw new Error(`${message}. Code: ${code}`);
 }
 try {
     handleError(404, 'Not Found');
@@ -28,7 +32,7 @@ catch (error) {
     console.log('Hubo unn error!!', error.message);
 }
 function sumNumbers(limit) {
-    var sum = 0;
+    let sum = 0;
     while (true) {
         sum++;
     }

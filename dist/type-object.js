@@ -1,6 +1,6 @@
 "use strict";
 // Type: object
-var user;
+let user;
 user = {};
 user = {
     id: 1,
@@ -10,12 +10,12 @@ user = {
 };
 console.log('user: ', user);
 // Obejct vs object(Clase JS vs tipo TS)
-var myObj = {
+const myObj = {
     id: 1,
     username: 'jhoguer',
     firstName: 'Jhon',
     isPro: true
 };
-var isInstance = myObj instanceof Object; // clase Objetc de JavaScript
+const isInstance = myObj instanceof Object; // clase Objetc de JavaScript
 console.log('isInstance: ', isInstance);
 console.log('myObj.username: ', myObj.username);

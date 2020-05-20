@@ -1,21 +1,21 @@
 "use strict";
 // Explicita
-var nullVariable;
+let nullVariable;
 nullVariable = null;
 // nullVariable = 1; // Error
-var otherVariable = null;
+let otherVariable = null;
 otherVariable = 'test';
 console.log('nullVariable: ', nullVariable);
 console.log('otherVariable: ', otherVariable);
 // Undefined
-var undefinedVariable = undefined;
+let undefinedVariable = undefined;
 // undefinedVariable = 'test'; // Error
-var otherUndefined = undefined;
+let otherUndefined = undefined;
 otherUndefined = 1;
 console.log('undefinedVariable: ', undefinedVariable);
 console.log('otherUndefined: ', otherUndefined);
 // Null y Undefin: Como subtipos
 // --strictNullChecks
-var albunName;
+let albunName;
 // albunName = null;
 // albunName = undefined;
