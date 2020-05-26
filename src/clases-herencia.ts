@@ -7,25 +7,25 @@ enum PhotoOrientation {
     Panorama
 }
 
-class Picture {
+// Superclase
+abstract class Item {
+    
     // Propiedades
-    private _id: number;
-    private _title: string;
-    private _orientation: PhotoOrientation;
+    protected readonly _id: number;
+    protected _title: string;
 
-    public constructor(id: number, title: string, orientation: PhotoOrientation) {
+    constructor(id: number, title: string) {
         this._id = id;
         this._title = title;
-        this._orientation = orientation;
     }
 
     get id() {
         return this._id;
     }
 
-    set id(id: number) {
-        this._id = id;
-    }
+    // set id(id: number) {
+    //     this._id = id;
+    // }
 
     get title() {
         return this._title;
@@ -33,6 +33,19 @@ class Picture {
 
     set title(title) {
         this._title = title;
+    }
+}
+
+// Clase Picture
+class Picture extends Item {
+    public static photoOrientation = PhotoOrientation;
+    // Propiedades
+
+    private _orientation: PhotoOrientation;
+
+    public constructor(id: number, title: string, orientation: PhotoOrientation) {
+        super(id, title);
+        this._orientation = orientation;
     }
 
     get orientation() {
@@ -52,14 +65,11 @@ class Picture {
     }
 }
 
-class Album {
-    private _id: number;
-    private _title: string;
+class Album extends Item {
     private _pictures: Picture[];
 
     public constructor(id: number, title: string) {
-        this._id = id;
-        this._title = title;
+        super(id, title);
         this._pictures = [];
     }
 
@@ -67,21 +77,6 @@ class Album {
         this._pictures.push(picture);
     }
 
-    get id() {
-        return this._id;
-    }
-
-    set id(id) {
-        this._id = id;
-    }
-
-    get title() {
-        return this._title;
-    }
-
-    set title(title) {
-        this._title = title;
-    }
 }
 
 const album: Album = new Album(1, 'Personal Pictures');
@@ -96,7 +91,14 @@ console.log('album ', album);
 
 // Accediento a los miembros publicos
 console.log('picture.id', picture.id);
-picture.id = 100; // Son miembros privados
+// picture.id = 100; // Son miembros privados // readonly
 picture.title = 'Another title'; // Son miembros privados
 album.title = 'Personal Activities'; // Son miembros privados
 console.log('album ', album);
+
+// const item = new Item(1, 'Test title');
+// console.log('item=> ', item);
+
+// Probar el miembro estatico
+console.log('PhotoOrientation-> ', Picture.photoOrientation.Panorama);
+// console.log('PhotoOrientation-> ', Item.photoOrientation.Square);
