@@ -9,9 +9,9 @@ enum PhotoOrientation {
 
 class Picture {
     // Propiedades
-    public id: number;
-    public title: string;
-    public orientation: PhotoOrientation;
+    private id: number;
+    private title: string;
+    private orientation: PhotoOrientation;
 
     public constructor(id: number, title: string, orientation: PhotoOrientation) {
         this.id = id;
@@ -29,9 +29,9 @@ class Picture {
 }
 
 class Album {
-    public id: number;
-    public title: string;
-    public pictures: Picture[];
+    private id: number;
+    private title: string;
+    private pictures: Picture[];
 
     public constructor(id: number, title: string) {
         this.id = id;
@@ -55,7 +55,7 @@ album.addPicture(picture1);
 console.log('album ', album);
 
 // Accediento a los miembros publicos
-picture.id = 100;
-picture.title = 'Another title';
-album.title = 'Personal Activities';
+// picture.id = 100; // Son miembros privados
+// picture.title = 'Another title'; // Son miembros privados
+// album.title = 'Personal Activities'; // Son miembros privados
 console.log('album ', album);
